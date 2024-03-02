@@ -16,35 +16,35 @@ class CategorySeeder extends Seeder
         $categories = collect([
             [
                 'id'    => 1,
-                'name'  => 'Laptops',
-                'slug'  => 'laptops',
+                'name'  => 'Cutlery',
+                'slug'  => 'cutlery',
                 "user_id" => 1,
             ],
             [
                 'id'    => 2,
-                'name'  => 'Hardware',
-                'slug'  => 'hardware',
+                'name'  => 'Crockery',
+                'slug'  => 'crockery',
                 "user_id" => 1,
 
             ],
             [
                 'id'    => 3,
-                'name'  => 'Smartphones',
-                'slug'  => 'smartphones',
+                'name'  => 'Cookware',
+                'slug'  => 'cookware',
                 "user_id" => 1,
 
             ],
             [
                 'id'    => 4,
-                'name'  => 'Speakers',
-                'slug'  => 'speakers',
+                'name'  => 'Greens',
+                'slug'  => 'greens',
                 "user_id" => 1,
 
             ],
             [
                 'id'    => 5,
-                'name'  => 'Software',
-                'slug'  => 'software',
+                'name'  => 'Flour',
+                'slug'  => 'flour',
                 "user_id" => 1,
 
             ]

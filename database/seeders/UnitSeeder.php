@@ -31,6 +31,18 @@ class UnitSeeder extends Seeder
                 'slug' => 'piece',
                 'short_code' => 'pc',
                 "user_id"=>1
+            ],
+            [
+                'name' => 'Kilogram',
+                'slug' => 'kilogram',
+                'short_code' => 'kg',
+                "user_id"=>1
+            ],
+            [
+                'name' => 'Bunch',
+                'slug' => 'bunch',
+                'short_code' => 'pc',
+                "user_id"=>1
             ]
         ]);
 
