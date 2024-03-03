@@ -249,18 +249,19 @@ class RolesAndPermissionsSeeder extends Seeder
     protected function assignPermissionsToRole(string $roleName, array $permissionGroups, array $permissions)
     {
         $role = Role::findByName($roleName);
-        Log::info("Assigning permissions to role: {$roleName}");
-
+        $allPermissions = collect([]);
+    
         foreach ($permissionGroups as $groupName) {
-            $groupPermissions = collect($permissions[$groupName])->map(function ($permissionName) use ($groupName) {
-                Log::info("Processing permission: {$permissionName} in group: {$groupName}");
-                dump("Processing permission: {$permissionName} in group: {$groupName}"); // This will output to the console
+            // Collect permissions for each group
+            $groupPermissions = collect($permissions[$groupName])->map(function ($permissionName) {
                 return Permission::findOrCreate($permissionName);
             });
     
-            $role->syncPermissions($groupPermissions);
-            Log::info("Assigned permissions from group: {$groupName} to role: {$roleName}");
-            dump("Assigned permissions from group: {$groupName} to role: {$roleName}"); // This will output to the console
+            // Merge current group permissions into all permissions
+            $allPermissions = $allPermissions->merge($groupPermissions);
         }
+    
+        // After collecting all permissions, sync them at once
+        $role->syncPermissions($allPermissions);
     }
 }
